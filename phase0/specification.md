@@ -8,4 +8,4 @@ Our goal is to create a program that will allow users to play a game of monopoly
 - Abide by tasks or consequences brought up when landing on a chance/community chest tile.
 - Go to jail if they land on the “Go to jail” tile.
 
-The program will control which players own each buyable tile. Additionally, the program will keep track of the number of tiles sold and remaining at all points in the game, as well as the funds of each player. The game will end when all players are bankrupt except one, or when all properties are sold and declares the person with the highest net-worth as the winner.
+The program will control which players own each buyable tile. Additionally, the program will keep track of the number of tiles sold and remaining at all points in the game, as well as the funds of each player. There are 2 possible ways for the game to end: if all players except one go bankrupt (this remaining player wins), or if all the properties are sold (in which case the player with the highest net worth - balance plus property values - wins).
