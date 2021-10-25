@@ -1,3 +1,5 @@
+// Author: Dennis Yakovlev
+
 package controllers.move;
 
 import entities.player.Player;

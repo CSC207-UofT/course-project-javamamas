@@ -1,3 +1,5 @@
+// Author: Dennis Yakovlev
+
 package entities.player;
 
 import interfaces.Initializable;

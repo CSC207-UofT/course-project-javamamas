@@ -1,3 +1,5 @@
+// Author: Dennis Yakovlev
+
 package cmd_interface;
 
 import java.util.Scanner;
