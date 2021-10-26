@@ -1,6 +1,8 @@
-package entities.tiles;
+package entities.tiles.start;
 
-public class GoToJailTile extends Tile {
+import entities.tiles.tile.Tile;
+
+public class StartTile extends Tile {
 
     @Override
     public void onAction() {

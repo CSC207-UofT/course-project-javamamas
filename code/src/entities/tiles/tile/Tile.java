@@ -1,4 +1,4 @@
-package entities.tiles;
+package entities.tiles.tile;
 
 public abstract class Tile {
     

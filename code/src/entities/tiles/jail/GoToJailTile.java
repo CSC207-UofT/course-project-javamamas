@@ -1,6 +1,8 @@
-package entities.tiles;
+package entities.tiles.jail;
 
-public class BuyableTile extends Tile {
+import entities.tiles.tile.Tile;
+
+public class GoToJailTile extends Tile {
 
     @Override
     public void onAction() {
