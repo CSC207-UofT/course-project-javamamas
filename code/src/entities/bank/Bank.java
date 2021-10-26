@@ -1,5 +1,5 @@
 // Author: Yusra
-package entities;
+package entities.bank;
 
 public class Bank {
     

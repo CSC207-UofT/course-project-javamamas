@@ -1,4 +1,6 @@
-package entities.tiles;
+package entities.tiles.communitychest;
+
+import entities.tiles.tile.Tile;
 
 public class CommunityChestTile extends Tile {
 

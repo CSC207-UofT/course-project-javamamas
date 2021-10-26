@@ -1,4 +1,4 @@
-package controllers;
+package controllers.tile;
 
 public class TileController {
     
