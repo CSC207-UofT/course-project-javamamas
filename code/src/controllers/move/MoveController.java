@@ -8,6 +8,7 @@ import java.util.Map;
 import entities.player.Player;
 import entities.player.PlayerNameException;
 import interfaces.Initializable;
+import interfaces.LockAction;
 
 /**
  * Controls moves of players.
@@ -16,7 +17,7 @@ import interfaces.Initializable;
  * - {@link #numPlayers} can only be set once
  * </p>
  */
-public class MoveController implements Initializable {
+public class MoveController implements Initializable, LockAction {
     
     /**
      * Checks whether <i> can be possibly allowed to be a turn.
@@ -230,6 +231,14 @@ public class MoveController implements Initializable {
 
         return _validNumPlayers(numPlayers);
 
+    }
+
+    @Override
+    public void begin() {
+    }
+
+    @Override
+    public void end() {
     }
 
 }
