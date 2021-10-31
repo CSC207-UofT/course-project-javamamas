@@ -2,7 +2,9 @@
 
 package entities.player;
 
+import cmd_interface.Main;
 import interfaces.Initializable;
+import interfaces.LockAction;
 
 /**
  * Player class.
@@ -11,7 +13,7 @@ import interfaces.Initializable;
  * - {@link #name} can only be set once
  * </p>
  */
-public class Player implements Initializable {
+public class Player implements Initializable, LockAction {
  
     /**
      * @param name name
@@ -42,6 +44,7 @@ public class Player implements Initializable {
     }
 
     private static final String INVALID_NAME = "_"; // starting invalid name
+    private static final int LOCK_ID = -8978194;
 
     private String name = INVALID_NAME; // name of player
 
@@ -49,12 +52,16 @@ public class Player implements Initializable {
 
     public Player(String name) {
 
+        begin();
+
         // try adding name
         try {
             _setName(name);
         } catch (PlayerNameException e) {
-            // Do nothing, fail silently 
+            e.printStackTrace();
         }
+
+        end();
 
     }
 
@@ -70,16 +77,26 @@ public class Player implements Initializable {
      */
     public void setName(String name) {
 
+        begin();
+
         try {
             _setName(name);
         } catch (PlayerNameException e) {
             e.printStackTrace();
         }
 
+        end();
+
     }
 
+    /**
+     * 
+     * @return copy of name
+     */
     public String getName() {
-        return name;
+
+        return new String(name);
+
     }
 
     /**
@@ -90,6 +107,16 @@ public class Player implements Initializable {
         
         return _validName(name);
 
+    }
+
+    @Override
+    public void begin() {
+        Main.GAMELOCK.lock(Player.LOCK_ID);
+    }
+
+    @Override
+    public void end() {
+        Main.GAMELOCK.unlock(Player.LOCK_ID);        
     }
 
 }
