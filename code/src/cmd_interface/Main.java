@@ -1,11 +1,16 @@
+// Author: Dennis Yakovlev
+
 package cmd_interface;
 
 import java.util.Scanner;
 
 import controllers.move.MoveController;
 import entities.player.Player;
+import observers.GameLock;
 
 public class Main {
+
+    public static final GameLock GAMELOCK = new GameLock();
     
     public static void main(String[] args) {
         
