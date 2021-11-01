@@ -4,6 +4,8 @@ import entities.player.Player;
 import entities.tiles.tile.ActionStruct;
 import entities.tiles.tile.Tile;
 
+//Author: Shivanshi
+
 public class StartTile extends Tile {
 
     @Override

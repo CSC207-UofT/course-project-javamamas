@@ -4,16 +4,14 @@ import entities.tiles.tile.ActionStruct;
 import entities.player.Player;
 import entities.tiles.tile.Tile;
 
-public class PrisionTile extends Tile {
+public class PrisonTile extends Tile {
 
     @Override
     public void onAction(ActionStruct info) {
     }
 
     @Override
-    public boolean canAddPlayer(Player player) {
-        return false;
-    }
+    public boolean canAddPlayer(Player player) { return false;}
 
     @Override
     public void addPlayer(Player player) {

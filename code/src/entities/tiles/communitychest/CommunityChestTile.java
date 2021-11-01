@@ -4,6 +4,8 @@ import entities.tiles.tile.ActionStruct;
 import entities.player.Player;
 import entities.tiles.tile.Tile;
 
+// Author: Shivanshi
+
 public class CommunityChestTile extends Tile {
 
     @Override
