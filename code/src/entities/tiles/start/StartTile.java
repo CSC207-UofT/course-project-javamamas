@@ -6,6 +6,8 @@ import entities.tiles.tile.Tile;
 
 public class StartTile extends Tile {
 
+    public StartTile(String tile_name) {}
+
     @Override
     public void onAction(ActionStruct info) {
     }
