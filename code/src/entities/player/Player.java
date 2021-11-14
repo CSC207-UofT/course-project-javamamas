@@ -13,7 +13,6 @@ public class Player {
     private Map<BuyableTile, Integer> houses;
     private int balance;
 
-
     public String getName() {
         return this.name;
     }
