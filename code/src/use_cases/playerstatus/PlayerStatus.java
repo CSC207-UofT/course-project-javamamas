@@ -1,4 +1,4 @@
-// Author: Yusra
+// Author: Yusra Fayyaz
 
 package use_cases.playerstatus;
 
@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import entities.bank.Bank;
 import entities.player.Player;
+import entities.tiles.buyable.BuyableTile;
 import entities.tiles.tile.Tile;
 
 public class PlayerStatus {
@@ -17,23 +18,20 @@ public class PlayerStatus {
      * @param bank {@link Bank}
      * @return true if conditions met, false otherwise
      */
-    public boolean isPlayerPlayable(Player player, Bank bank) {
-
-        return true;
-
+    public boolean checkPlayer(Player player) {
+        return player.getBalance() != 0;
     }
 
     /**
      * 
-     * @param player {@link Player}
-     * @param bank {@link Bank}
-     * @param tiles {@link Tile}
-     * @return a players networth, -1 is cannot check players networth
+     *
      */
-    public int playerValue(Player player, Bank bank, Collection<Tile> tiles) {
-
-        return 0;
-
+    public int playerValue(Player player) {
+        int networth = 0;
+        for (BuyableTile property : player.getHouses().keySet()) {
+            networth += property.getPrice();
+        }
+        return networth + player.getBalance();
     }
 
 }
