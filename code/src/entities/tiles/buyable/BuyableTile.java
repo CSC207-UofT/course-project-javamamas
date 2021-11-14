@@ -3,7 +3,6 @@ package entities.tiles.buyable;
 import entities.tiles.tile.ActionStruct;
 import entities.player.Player;
 import entities.tiles.tile.Tile;
-import interfaces.Initializable;
 
 public class BuyableTile extends Tile {
 
@@ -12,7 +11,6 @@ public class BuyableTile extends Tile {
 
 
     /**
-     * TODO: catch exception if invalid price
      * 
      * @param price price of tile
      */
@@ -28,7 +26,7 @@ public class BuyableTile extends Tile {
      */
     public boolean canSetOwner(Player player) {
         
-        return true;
+        return tileOwner == null;
         
     }
 
@@ -38,24 +36,13 @@ public class BuyableTile extends Tile {
      */
     public boolean canRemoveOwner() {
 
-        return true;
-
-    }
-
-    /**
-     * 
-     * @return true if has owner, false otherwise
-     */
-    public boolean hasOwner() {
-
-        return true;
+        return tileOwner != null;
 
     }
 
     /**
      * Set owner of tile.
      * 
-     * TODO: Catch exception if cannot set owner.
      * 
      * @param player {@link Player}
      */
@@ -66,19 +53,17 @@ public class BuyableTile extends Tile {
     /**
      * Remove owner of file.
      * 
-     * TODO: Catch exception if cannot remove owner.
      */
     public void removeOwner() {
+        tileOwner = null;
     }
 
     /**
      * 
-     * TODO: catch exception if cannot get owner of this tile
-     * 
      * @return owner of this tile
      */
     public Player getOwner() {
-        return null;
+        return tileOwner;
     }
 
     /**
@@ -96,14 +81,11 @@ public class BuyableTile extends Tile {
         int current_balance = info.currPlayer.getBalance();
         info.currPlayer.setBalance(current_balance - price);
         this.tileOwner.setBalance(current_balance + price);
-
-
     }
-
 
     @Override
     public void addPlayer(Player player) {
-
+        this.getPlayers().add(player);
     }
 
     @Override
@@ -113,6 +95,7 @@ public class BuyableTile extends Tile {
 
     @Override
     public void removePlayer(Player player) {
+        this.getPlayers().remove(player);
     }
   
 }

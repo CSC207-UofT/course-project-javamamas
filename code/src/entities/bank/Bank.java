@@ -2,16 +2,10 @@
 package entities.bank;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 import entities.player.Player;
 import entities.tiles.buyable.BuyableTile;
-import entities.tiles.tile.Tile;
-import interfaces.Initializable;
-import interfaces.LockAction;
-import controllers.move.MoveController;
 import use_cases.board.Board;
 
 /**
