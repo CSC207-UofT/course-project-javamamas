@@ -36,7 +36,7 @@ public abstract class Tile {
      * @return true if can add player, false otherwise
      */
 
-    public abstract boolean canAddPlayer(Player player);
+    //public abstract boolean canAddPlayer(Player player);
 
     /**
      *

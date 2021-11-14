@@ -3,35 +3,30 @@ package entities.tiles.start;
 import entities.player.Player;
 import entities.tiles.tile.ActionStruct;
 import entities.tiles.tile.Tile;
-import entities.bank.Bank;
 
 // Author: Shivanshi
 
 public class StartTile extends Tile {
 
-    @Override
-    public void onAction(Bank bank, Player player) {
-        bank.balance -= 200;
-        player.balance += 200;
-    }
+    public StartTile(String tile_name) {}
 
     @Override
-    public boolean canAddPlayer(Player player) {
-        return true;
+    public void onAction(ActionStruct p) {
+        p.currPlayer.setBalance(p.currPlayer.getBalance() + 200);
     }
 
-    @Override
     public void addPlayer(Player player) {
-
+        this.getPlayers().add(player);
     }
 
     @Override
     public boolean canRemovePlayer(Player player) {
-        return false;
+        return true;
     }
 
     @Override
     public void removePlayer(Player player) {
+        this.getPlayers().remove(player);
     }
     
 }
