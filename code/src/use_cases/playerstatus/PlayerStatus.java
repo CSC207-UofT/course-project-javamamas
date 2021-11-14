@@ -1,4 +1,4 @@
-// Author: Yusra
+// Author: Yusra Fayyaz
 
 package use_cases.playerstatus;
 
@@ -17,10 +17,8 @@ public class PlayerStatus {
      * @param bank {@link Bank}
      * @return true if conditions met, false otherwise
      */
-    public boolean isPlayerPlayable(Player player, Bank bank) {
-
-        return true;
-
+    public boolean checkPlayer(Player player) {
+        return player.balance != 0;
     }
 
     /**
@@ -30,10 +28,12 @@ public class PlayerStatus {
      * @param tiles {@link Tile}
      * @return a players networth, -1 is cannot check players networth
      */
-    public int playerValue(Player player, Bank bank, Collection<Tile> tiles) {
-
-        return 0;
-
+    public int playerValue(Player player) {
+        networth = 0;
+        for (property in player.properties) {
+            networth += property.getPrice();
+        }
+        return networth + player.balance;
     }
 
 }
