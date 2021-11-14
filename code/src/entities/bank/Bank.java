@@ -73,19 +73,19 @@ public class Bank {
     }
 
     public void sellProperty(Player player, BuyableTile prospect){
-        begin();
+
         try {
-            if (player.balance >= prospect.getPrice()) {
+            if (player.getBalance() >= prospect.getPrice()) {
                 this.remainingTiles.remove(prospect);
-                player.balance -= prospect.getPrice();
+                player.getBalance() -= prospect.getPrice();
                 this.balance += prospect.getPrice();
                 // ask Dennis to add player balance and properties
-                player.properties.add(prospect);
+                player.getHouses().put(prospect, 0);
             }
         } catch (BankPropertyException e) {
             e.printStackTrace();
         }
-        end();
+
     }
 
 }
