@@ -8,7 +8,7 @@ Pick wisely, you can't change once you have picked.
 
 <ul>
   <li> StartTile </li>
-  <li> PrisionTile </li>
+  <li> PrisonTile </li>
   <li> GoToJailTile </li>
   <li> CommunityChestTile </li>
   <li> BuyableTile </li>
