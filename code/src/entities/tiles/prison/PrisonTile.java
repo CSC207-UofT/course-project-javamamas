@@ -6,12 +6,16 @@ import entities.tiles.tile.Tile;
 
 public class PrisonTile extends Tile {
 
+    public PrisonTile(String tile_name) {}
+
     @Override
     public void onAction(ActionStruct info) {
     }
 
     @Override
-    public boolean canAddPlayer(Player player) { return false;}
+    public boolean canAddPlayer(Player player) {
+        return false;
+    }
 
     @Override
     public void addPlayer(Player player) {

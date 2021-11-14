@@ -6,6 +6,8 @@ import entities.tiles.tile.Tile;
 
 public class GoToJailTile extends Tile {
 
+    public GoToJailTile(String tile_name) {}
+
     @Override
     public void onAction(ActionStruct info) {        
     }
