@@ -8,13 +8,10 @@ import entities.tiles.tile.Tile;
 
 public class FreePassTile extends Tile {
 
-    @Override
-    public void onAction(ActionStruct info) {        
-    }
+    public FreePassTile(String tile_name) {}
 
     @Override
-    public boolean canAddPlayer(Player player) {
-        return false;
+    public void onAction(ActionStruct info) {        
     }
 
     @Override
