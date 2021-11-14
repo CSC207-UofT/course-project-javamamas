@@ -13,11 +13,6 @@ public class StartTile extends Tile {
     }
 
     @Override
-    public boolean canAddPlayer(Player player) {
-        return false;
-    }
-
-    @Override
     public void addPlayer(Player player) {
     }
 

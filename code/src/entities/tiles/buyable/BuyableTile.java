@@ -5,7 +5,11 @@ import entities.player.Player;
 import entities.tiles.tile.Tile;
 import interfaces.Initializable;
 
-public class BuyableTile extends Tile implements Initializable {
+public class BuyableTile extends Tile {
+
+    private int price;
+    private Player tileOwner;
+
 
     /**
      * TODO: catch exception if invalid price
@@ -13,6 +17,9 @@ public class BuyableTile extends Tile implements Initializable {
      * @param price price of tile
      */
     public BuyableTile(int price, String tile_name) {
+
+        this.price = price;
+
     }
 
     /**
@@ -52,7 +59,8 @@ public class BuyableTile extends Tile implements Initializable {
      * 
      * @param player {@link Player}
      */
-    public void setOwner(Player player) {   
+    public void setOwner(Player player) {
+        this.tileOwner = player;
     }
 
     /**
@@ -79,35 +87,32 @@ public class BuyableTile extends Tile implements Initializable {
      */
     public int getPrice(){
         
-        return -1;
+        return this.price;
 
     }
 
     @Override
     public void onAction(ActionStruct info) {
+        int current_balance = info.currPlayer.getBalance();
+        info.currPlayer.setBalance(current_balance - price);
+        this.tileOwner.setBalance(current_balance + price);
+
+
     }
 
-    @Override
-    public boolean canAddPlayer(Player player) {
-        return false;
-    }
 
     @Override
     public void addPlayer(Player player) {
+
     }
 
     @Override
     public boolean canRemovePlayer(Player player) {
-        return false;
+        return true;
     }
 
     @Override
     public void removePlayer(Player player) {
-    }
-
-    @Override
-    public boolean initialized() {
-        return false;
     }
   
 }
