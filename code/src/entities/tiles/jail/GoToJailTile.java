@@ -10,7 +10,9 @@ public class GoToJailTile extends Tile {
 
     @Override
     public void onAction(ActionStruct info) {
-
+        info.board.setPlayerPosition(info.currPlayer, 11);
+        Tile prison_tile = info.board.getTileAtPosition(11);
+        prison_tile.addPlayer(info.currPlayer);
     }
 
     @Override
@@ -19,11 +21,13 @@ public class GoToJailTile extends Tile {
 
     @Override
     public boolean canRemovePlayer(Player player) {
-        return false;
+
+        return true;
     }
 
     @Override
     public void removePlayer(Player player) {
+        this.getPlayers().remove(player);
     }
     
 }
