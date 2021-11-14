@@ -1,11 +1,16 @@
-// Author: Yusra
+// Author: Yusra Fayyaz
 package entities.bank;
 
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import entities.player.Player;
+import entities.tiles.buyable.BuyableTile;
 import interfaces.Initializable;
 import interfaces.LockAction;
+import controllers.move.MoveController;
 
 /**
  * Bank class.
@@ -15,149 +20,72 @@ import interfaces.LockAction;
  * - {@link #numPlayers} can only be set once
  * </p>
  */
-public class Bank implements Initializable, LockAction {
+public class Bank {
     
-    Map<Player, Integer> balances; // balance of players
-    int numPlayers; // number of players
-
-    public Bank() {} // allow default construction
-
-    /**
-     * 
-     * TODO: catch exception if invalid number of players
-     * 
-     * @param numPlayers
-     */
-    public Bank(int numPlayers) {
-    }
+    HashMap<Player, Integer> balances; // balance of players
+    int balance; // total balance in bank
+    int numHouses; // number of houses in bank
+    int numHotels; // number of hotels in bank
+    ArrayList<BuyableTile> remainingTiles; // a list of the remaining tiles that are still in bank possession
 
     /**
+     *  Construct the bank.
+     *
      * 
-     * @param player {@link Player}
-     * @param amount
-     * @return true if can pay player amount, false otherwise
+     *
      */
-    public boolean canPay(Player player, int amount) {
-
-        return true;
-
+    public Bank() {
+        this.numHouses = 32;
+        this.numHotels = 12;
+        this.balance = 20580;
+        BuyableTile MediterraneanAvenue = new BuyableTile(60);
+        BuyableTile BalticAvenue = new BuyableTile(60);
+        BuyableTile OrientalAvenue = new BuyableTile(100);
+        BuyableTile VermontAvenue = new BuyableTile(100);
+        BuyableTile ConnecticutAvenue = new BuyableTile(120);
+        BuyableTile StCharlesPlace = new BuyableTile(140);
+        BuyableTile StatesAvenue = new BuyableTile(140);
+        BuyableTile VirginiaAvenue = new BuyableTile(160);
+        BuyableTile StJamesPlace = new BuyableTile(180);
+        BuyableTile TennesseeAvenue = new BuyableTile(180);
+        BuyableTile NewYorKAvenue = new BuyableTile(200);
+        BuyableTile KentuckyAvenue = new BuyableTile(220);
+        BuyableTile IndianaAvenue = new BuyableTile(220);
+        BuyableTile IllinoisAvenue = new BuyableTile(240);
+        BuyableTile AtlanticAvenue = new BuyableTile(260);
+        BuyableTile VentorAvenue = new BuyableTile(260);
+        BuyableTile MarvinGardens = new BuyableTile(280);
+        BuyableTile PacificAvenue = new BuyableTile(300);
+        BuyableTile NorthCarolinaAvenue = new BuyableTile(300);
+        BuyableTile PennsylvaniaAvenue = new BuyableTile(320);
+        BuyableTile ParkPlace = new BuyableTile(350);
+        BuyableTile Boardwalk = new BuyableTile(400);
+        BuyableTile ReadingRailroad = new BuyableTile(200);
+        BuyableTile PennsylvaniaRailroad = new BuyableTile(200);
+        BuyableTile BnORailroad = new BuyableTile(200);
+        BuyableTile ShortLine = new BuyableTile(200);
+        List<BuyableTile> tiles = Arrays.asList(MediterraneanAvenue, BalticAvenue, OrientalAvenue, VermontAvenue,
+                ConnecticutAvenue, StCharlesPlace, StatesAvenue, VirginiaAvenue, StJamesPlace, TennesseeAvenue,
+                NewYorKAvenue, KentuckyAvenue, IndianaAvenue, IllinoisAvenue, AtlanticAvenue, VentorAvenue,
+                MarvinGardens, PacificAvenue, NorthCarolinaAvenue, PennsylvaniaAvenue, ParkPlace, Boardwalk,
+                ReadingRailroad, PennsylvaniaRailroad, BnORailroad, ShortLine);
+        this.remainingTiles = new ArrayList<>(tiles);
     }
 
-    /**
-     * 
-     * @param player {@link Player}
-     * @param amount
-     * @return true if can take amount from player, false otherwise
-     */
-    public boolean canTake(Player player, int amount) {
+    public void sellProperty(Player player, BuyableTile prospect){
 
-        return true;
+        try {
+            if (player.getBalance() >= prospect.getPrice()) {
+                this.remainingTiles.remove(prospect);
+                player.getBalance() -= prospect.getPrice();
+                this.balance += prospect.getPrice();
+                // ask Dennis to add player balance and properties
+                player.getHouses().put(prospect, 0);
+            }
+        } catch (BankPropertyException e) {
+            e.printStackTrace();
+        }
 
-    }
-
-    /**
-     * 
-     * @param player {@link Player}
-     * @return true if can add player, false otherwise
-     */
-    public boolean canAddPlayer(Player player) {
-
-        return true;
-
-    }
-
-    /**
-     * 
-     * @param num number of players
-     * @return true can add number of players.
-     */
-    public boolean canAddNumPlayers(int num) {
-
-        return true;
-
-    }
-
-    /**
-     * 
-     * @param player {@link Player}
-     * @return true if player balance balance can be checked
-     */
-    public boolean canCheckBalance(Player player) {
-
-        return true;
-
-    }
-
-    /**
-     * Take amount from player.
-     * 
-     * TODO: catch exception if cannot take amount from player.
-     * 
-     * @param player {@link Player}
-     * @param amount
-     */
-    public void TakePlayer(Player player, int amount) {
-    }
-
-    /**
-     * Pay player amount.
-     * 
-     * TODO: catch exception if cannot pay player.
-     * 
-     * @param player {@link Player}
-     * @param amount
-     */
-    public void PayPlayer(Player player, int amount) {
-    } 
-    
-    /**
-     * Add player to bank.
-     * 
-     * TODO: catch exception if player cannot be added to bank.
-     * 
-     * @param player {@link Player}
-     */
-    public void addPlayer(Player player) {
-    }
-
-    /**
-     * Add number of players.
-     * 
-     * TODO: catch exception if cannot add number of players
-     * 
-     * @param num number of players
-     */
-    public void addNumPlayers(int num) {
-    }
-
-    /**
-     * 
-     * TODO: catch exception if cannot return player balance
-     * 
-     * @param player {@link Player}
-     * @return player balance
-     */
-    public int playerBalance(Player player) {
-
-        return -1;
-
-    }
-
-    /**
-     * 
-     * @return true if all players have been added.
-     */
-    @Override
-    public boolean initialized() {
-        return false;
-    }
-
-    @Override
-    public void begin() {
-    }
-
-    @Override
-    public void end() {
     }
 
 }
