@@ -9,7 +9,8 @@ public class GoToJailTile extends Tile {
     public GoToJailTile(String tile_name) {}
 
     @Override
-    public void onAction(ActionStruct info) {        
+    public void onAction(ActionStruct info) {
+
     }
 
     @Override

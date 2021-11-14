@@ -15,21 +15,23 @@ public class StartTile extends Tile {
         player.balance += 200;
     }
 
-//    @Override
-//    public boolean canAddPlayer(Player player) { return true; }
-//
-//    @Override
-//    public void addPlayer(Player player) {
-//
-//    }
-//
-//    @Override
-//    public boolean canRemovePlayer(Player player) {
-//        return false;
-//    }
-//
-//    @Override
-//    public void removePlayer(Player player) {
-//    }
+    @Override
+    public boolean canAddPlayer(Player player) {
+        return true;
+    }
+
+    @Override
+    public void addPlayer(Player player) {
+
+    }
+
+    @Override
+    public boolean canRemovePlayer(Player player) {
+        return false;
+    }
+
+    @Override
+    public void removePlayer(Player player) {
+    }
     
 }
