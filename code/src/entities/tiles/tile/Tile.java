@@ -3,6 +3,7 @@
 package entities.tiles.tile;
 
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.Set;
 
 import entities.player.Player;
@@ -10,6 +11,12 @@ import entities.player.Player;
 public abstract class Tile {
     
     private Set<Player> players; // all players currently on the tile
+
+    public Tile() {
+
+        players = new HashSet<>();
+
+    }
 
     /**
      * 
