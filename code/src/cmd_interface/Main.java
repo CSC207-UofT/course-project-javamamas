@@ -13,8 +13,6 @@ public class Main {
     public static void main(String[] args) {
      
         MoveController controller = Input.setUp(); // create move controller for game
-        var tiles = TileFactory.setUp(); // create tiles
-
         
 
     }

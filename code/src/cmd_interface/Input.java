@@ -6,7 +6,6 @@ import java.util.Scanner;
 
 import controllers.move.MoveController;
 import entities.player.Player;
-import observers.GameLock;
 
 public class Input {
     
@@ -36,7 +35,7 @@ public class Input {
             // get player name
             System.out.print("Enter Player Name: ");
             String name = scannerName.nextLine();
-            while (!player.isValidName(name) || !controller.isValidPlayerName(name)) {
+            while (!controller.isValidPlayerName(name)) {
                 System.out.print("Enter Player Name: ");
                 name = scannerName.nextLine();
             }

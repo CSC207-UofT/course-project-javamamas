@@ -9,7 +9,14 @@ import java.util.Set;
 import entities.player.Player;
 
 public abstract class Tile {
-    
+    String tile_name;
+
+    public Tile() {}
+
+    public Tile(String tile_name) {
+        this.tile_name = tile_name;
+    }
+
     private Set<Player> players; // all players currently on the tile
 
     public Tile() {
@@ -30,6 +37,7 @@ public abstract class Tile {
      * @param player {@link Player}
      * @return true if can add player, false otherwise
      */
+
     public abstract boolean canAddPlayer(Player player);
 
     /**
@@ -56,6 +64,7 @@ public abstract class Tile {
      * 
      * @param player {@link Player}
      */
+
     public abstract void removePlayer(Player player);
 
     /**

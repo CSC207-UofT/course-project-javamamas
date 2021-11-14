@@ -12,7 +12,7 @@ public class BuyableTile extends Tile implements Initializable {
      * 
      * @param price price of tile
      */
-    public BuyableTile(int price) {
+    public BuyableTile(int price, String tile_name) {
     }
 
     /**
