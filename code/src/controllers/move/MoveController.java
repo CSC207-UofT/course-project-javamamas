@@ -1,11 +1,15 @@
+// Author: Dennis
+
 package controllers.move;
 
 import java.util.HashMap;
 import java.util.Map;
 
+import entities.bank.Bank;
 import entities.player.Player;
 import entities.player.PlayerNameException;
-import interfaces.Initializable;
+import use_cases.board.Board;
+import use_cases.playerstatus.PlayerStatus;
 
 /**
  * Controls moves of players.
@@ -14,8 +18,68 @@ import interfaces.Initializable;
  * - {@link #numPlayers} can only be set once
  * </p>
  */
-public class MoveController implements Initializable {
+public class MoveController {
     
+    private Map<Integer, Player> turns;
+    private int numPlayers; // number of players
+    private int turnNumber = 1;
+    private Board board;
+    private PlayerStatus status;
+    private Bank bank;
+
+    public MoveController() {
+
+        turns = new HashMap<>();
+        board.create_board();
+        status = new PlayerStatus();
+        bank = new Bank();
+
+    }
+
+    public Map<Integer,Player> getTurns() {
+        return this.turns;
+    }
+
+    private void moveTurnForward() {
+
+        if (turnNumber < numPlayers) {
+            turnNumber++;
+        } else {
+            turnNumber = 1;
+        }
+
+    }
+
+    private int rollDie() {
+
+        return (int)(Math.random() * numPlayers) + 1;
+
+    }
+
+    public boolean goTurn() {
+
+        Player currPlayer = turns.get(turnNumber);
+
+        if (!status.isPlayerPlayable(currPlayer, bank)) { // player not playable
+            return false;
+        }
+
+        board.setPlayerPosition(currPlayer, board.getPlayerPosition(currPlayer) + rollDie());
+
+        moveTurnForward();
+
+        return true;
+
+    }
+
+    public void setTurns(Map<Integer,Player> turns) {
+        this.turns = turns;
+    }
+
+    public int getNumPlayers() {
+        return this.numPlayers;
+    }
+
     /**
      * Checks whether <i> can be possibly allowed to be a turn.
      * Doesnt chekc whehther it can be added as turn.
@@ -71,7 +135,7 @@ public class MoveController implements Initializable {
      */
     private void _addPlayer(int i, Player player) throws MoveAddException, PlayerNameException {
 
-        if (_validTurn(i) && _possibleAddTurn(i) && initialized()) {
+        if (_validTurn(i) && _possibleAddTurn(i)) {
             if (_possibleAddPlayerName(player.getName())) {
                 turns.put(i, player);
     
@@ -115,36 +179,6 @@ public class MoveController implements Initializable {
 
     }
 
-    private Map<Integer, Player> turns;
-    private int numPlayers; // number of players
-
-    /**
-     * Default initialization of Controller.
-     */
-    private void _defaultInit() {
-
-        turns = new HashMap<Integer,Player>();
-
-    }
-
-    public MoveController() {
-
-        _defaultInit();
-
-    }
-
-    public MoveController(int numPlayers) {
-
-        _defaultInit();
-
-        // try setting number of players
-        try {
-            _setNumPlayers(numPlayers);
-        } catch (MoveAddException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     /**
      * {@link #validTurn(int)} 
@@ -220,14 +254,5 @@ public class MoveController implements Initializable {
 
     }
 
-    /**
-     * @return true if number of turns has been set
-     */
-    @Override
-    public boolean initialized() {
-
-        return _validNumPlayers(numPlayers);
-
-    }
 
 }

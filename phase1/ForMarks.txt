@@ -1,0 +1,51 @@
+SOLID:
+
+Single Responsibility Principle
+
+Open/ Closed Principal
+	- tile class with all of its subclasses.
+	- the tile class is closed for modification, however can add/ removed
+	  as many subclasses as needed to choose which tiles we want/ dont
+	  want
+
+Liskov Substitution Principle
+
+Interface Segregation Principal
+	- Initializable is a very small interface, which forces a SINGLE
+	  behaviour onto a child
+
+Dependency Inversion Principle
+
+-------------------------------------------------
+
+Clean Architecture:
+
+-------------------------------------------------
+
+Design Patterns:
+
+Iterator Design Pattern
+
+Observer Design Pattern
+	- have a GameObserver which is a lock on all game events, if one class requests a
+	  lock another cannot also have a lock. This allows for multiple objects to be
+	  related through a single class.
+
+Strategy Design Pattern
+	- the Tile class uses this. It has an onAction event which needs to do different
+	  things depending on the use case. The implementation of onAction is hidden
+	  within the subclasses.
+
+Dependancy Injection Design Pattern
+	- inside of PropertyChecker#canBuy take a Tile. This is because we want to be able
+	  to use any kind of tile, not just a buyable tile. Say if a player requests to
+	  buy a jail tile, they obviously cannot do this, but we must somehow check that
+	  a jail tile is not buyable, the common between jail and buyable tiles are is
+	  that they are both tiles. So we use a Tile type.
+
+Simple Factory Design Pattern
+
+Facade Design Pattern
+
+Builder Design Pattern
+

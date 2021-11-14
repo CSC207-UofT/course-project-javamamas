@@ -1,93 +1,49 @@
+// Author: Dennis Yakovlev
+
 package entities.player;
 
-import interfaces.Initializable;
+import java.util.Map;
 
-/**
- * Player class.
- * <p> Invariants </p>
- * <p>
- * - {@link #name} can only be set once
- * </p>
- */
-public class Player implements Initializable {
+import entities.tiles.buyable.BuyableTile;
+
+public class Player {
  
-    /**
-     * @param name name
-     * @return true if valid name, false otherwise
-     */
-    private boolean _validName(String name) {
-        return !name.equals(INVALID_NAME);
-    }
+    private String name;
+    private int titleDeeds;
+    private Map<BuyableTile, Integer> houses;
+    private int balance;
 
-    /**
-     * Add name of player.
-     * Check that name is valid and that name for player has not been set yet.
-     * 
-     * @param name name
-     * @return true if name added, false otherwise
-     * @throws PlayerNameException
-     */
-    private void _setName(String name) throws PlayerNameException {
-        
-        if (_validName(name) && !_validName(this.name)) {
-            this.name = name;
-
-            return;
-        } 
-            
-        throw new PlayerNameException(name);
-
-    }
-
-    private static final String INVALID_NAME = "_"; // starting invalid name
-
-    private String name = INVALID_NAME; // name of player
-
-    public Player() {} // allow default construction
-
-    public Player(String name) {
-
-        // try adding name
-        try {
-            _setName(name);
-        } catch (PlayerNameException e) {
-            // Do nothing, fail silently 
-        }
-
-    }
-
-    /**
-     * {@link #_validName(String) }
-     */
-    public boolean isValidName(String name) {
-        return _validName(name);
-    }
-
-    /**
-     * {@link #_addName(String)}
-     */
-    public void setName(String name) {
-
-        try {
-            _setName(name);
-        } catch (PlayerNameException e) {
-            e.printStackTrace();
-        }
-
-    }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
-    /**
-     * @return true if name has been set, false otherwise
-     */
-    @Override
-    public boolean initialized() {
-        
-        return _validName(name);
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public int getTitleDeeds() {
+        return this.titleDeeds;
+    }
+
+    public void setTitleDeeds(int titleDeeds) {
+        this.titleDeeds = titleDeeds;
+    }
+
+    public Map<BuyableTile,Integer> getHouses() {
+        return this.houses;
+    }
+
+    public void setHouses(Map<BuyableTile,Integer> houses) {
+        this.houses = houses;
+    }
+
+    public int getBalance() {
+        return this.balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
     }
 
 }
