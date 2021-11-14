@@ -11,8 +11,6 @@ import entities.player.Player;
 public abstract class Tile {
     String tile_name;
 
-    public Tile() {}
-
     public Tile(String tile_name) {
         this.tile_name = tile_name;
     }
