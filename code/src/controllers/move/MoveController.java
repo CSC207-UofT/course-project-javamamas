@@ -60,7 +60,7 @@ public class MoveController {
 
         Player currPlayer = turns.get(turnNumber);
 
-        if (!status.isPlayerPlayable(currPlayer, bank)) { // player not playable
+        if (!status.checkPlayer(currPlayer)) { // player not playable
             return false;
         }
 

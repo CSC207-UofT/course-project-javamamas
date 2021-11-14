@@ -2,12 +2,9 @@
 
 package use_cases.playerstatus;
 
-import java.util.Collection;
-
 import entities.bank.Bank;
 import entities.player.Player;
 import entities.tiles.buyable.BuyableTile;
-import entities.tiles.tile.Tile;
 
 public class PlayerStatus {
     
