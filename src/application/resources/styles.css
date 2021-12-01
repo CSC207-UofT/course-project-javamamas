@@ -1,0 +1,30 @@
+.root {   
+	-fx-background : rgb(0,0,0); 
+}  
+
+.header {
+	-fx-background-color: rgb(25,25,55);
+}
+
+.header .btn {
+	-fx-background-color: rgb(25,25,255);
+	-fx-background-radius: 0px;
+}
+
+#weclome {
+	-fx-background-color: rgb(25,255,0);
+}
+
+#select {
+	-fx-background-color: rgb(255,25,0);
+	-fx-opacity: 0;
+}
+
+#prev {
+	-fx-opacity: 0;
+	-fx-background-color: rgb(255,0,0);
+}
+
+#next {
+	-fx-background-color: rgb(255,0,0);
+}

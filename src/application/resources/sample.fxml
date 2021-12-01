@@ -1,0 +1,19 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<Pane fx:id="main" fx:controller="application.Controller" xmlns:fx="http://javafx.com/fxml">  
+	<AnchorPane fx:id="header" styleClass="header">
+		<Button fx:id="exit" styleClass="btn" onAction="#exitClick"/>
+		<Button fx:id="minimize" styleClass="btn" onAction="#minClick"/>
+	</AnchorPane>
+	<Pane fx:id="welcome">
+	</Pane>
+	<Pane fx:id="select">
+	</Pane>
+	<Button fx:id="prev" onAction="#slidePrev"/>
+	<Button fx:id="next" onAction="#slideNext"/>
+</Pane>
