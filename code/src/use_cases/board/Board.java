@@ -27,6 +27,7 @@ public class Board {
         String line;
         try {
             br = new BufferedReader(new FileReader("monopoly_tiles.csv"));
+            br.readLine();
             while((line = br.readLine()) != null) {
                 String[] row = line.split(",");
                 Integer spot = Integer.parseInt(row[0]);
