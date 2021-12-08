@@ -1,27 +1,27 @@
 ﻿spot,name,tile_type,price
-1,GO,Start,0
+1,GO,Start,1
 2,Mediterranean Avenue,Buyable,60
-3,CommunityChest1,CommunityChest,0
+3,CommunityChest1,CommunityChest,1
 4,Baltic Avenue,Buyable,60
-5,CommunityChest2,CommunityChest,0
+5,CommunityChest2,CommunityChest,1
 6,Reading Railroad,Buyable,200
 7,Oriental Avenue,Buyable,100
-8,CommunityChest3,CommunityChest,0
+8,CommunityChest3,CommunityChest,1
 9,Vermont Avenue,Buyable,100
 10,Connecticut Avenue,Buyable,120
-11,Jail,Prison,0
+11,Jail,Prison,1
 12,St. Charles Place,Buyable,140
 13,Electric Company,Buyable,150
 14,States Avenue,Buyable,140
 15,Virginia Avenue,Buyable,160
 16,Pennsylvania Railroad,Buyable,200
 17,St. James Place,Buyable,180
-18,CommunityChest4,CommunityChest,0
+18,CommunityChest4,CommunityChest,1
 19,Tennessee Avenue,Buyable,180
 20,New York Avenue,Buyable,200
-21,FreePass,FreePass,0
+21,FreePass,FreePass,1
 22,Kentucky Avenue,Buyable,220
-23,CommunityChest5,CommunityChest,0
+23,CommunityChest5,CommunityChest,1
 24,Indiana Avenue,Buyable,220
 25,Illinois Avenue,Buyable,240
 26,B. & O. Railroad,Buyable,200
@@ -29,13 +29,13 @@
 28,Ventnor Avenue,Buyable,260
 29,Water Works,Buyable,150
 30,Marvin Gardens,Buyable,280
-31,GoToJail,GoToJail,0
+31,GoToJail,GoToJail,1
 32,Pacific Avenue,Buyable,300
 33,North Carolina Avenue,Buyable,300
-34,CommunityChest6,CommunityChest,0
+34,CommunityChest6,CommunityChest,1
 35,Pennsylvania Avenue,Buyable,320
 36,Short Line Railroad,Buyable,200
-37,CommunityChest7,CommunityChest,0
+37,CommunityChest7,CommunityChest,1
 38,Park Place,Buyable,350
-39,CommunityChest8,CommunityChest,0
+39,CommunityChest8,CommunityChest,1
 40,Boardwalk,Buyable,400
