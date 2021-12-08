@@ -4,11 +4,13 @@ import entities.player.Player;
 import entities.tiles.buyable.BuyableTile;
 import entities.tiles.communitychest.CommunityChestTile;
 import entities.tiles.jail.GoToJailTile;
+import entities.tiles.pass.FreePassTile;
 import entities.tiles.prison.PrisonTile;
 import entities.tiles.start.StartTile;
 import entities.tiles.tile.Tile;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.*;
 
 public class Board {
     private Map<Integer, Tile> board_squares;
@@ -16,46 +18,48 @@ public class Board {
 
     public void create_board() {
         this.board_squares = new HashMap<Integer, Tile>();
-        board_squares.put(1, new StartTile("GO"));
-        board_squares.put(2, new BuyableTile(60, "Mediterranean Avenue"));
-        board_squares.put(3, new CommunityChestTile("CommunityChest1"));
-        board_squares.put(4, new BuyableTile(60, "Baltic Avenue"));
-        board_squares.put(5, new CommunityChestTile("CommunityChest2"));
-        board_squares.put(6, new BuyableTile(200, "Reading Railroad"));
-        board_squares.put(7, new BuyableTile(100, "Oriental Avenue"));
-        board_squares.put(8, new CommunityChestTile("CommunityChest3"));
-        board_squares.put(9, new BuyableTile(100, "Vermont Avenue"));
-        board_squares.put(10, new BuyableTile(120, "Connecticut Avenue"));
-        board_squares.put(11, new PrisonTile("Jail"));
-        board_squares.put(12, new BuyableTile(140, "St. Charles Place"));
-        board_squares.put(13, new BuyableTile(150, "Electric Company"));
-        board_squares.put(14, new BuyableTile(140, "States Avenue"));
-        board_squares.put(15, new BuyableTile(160, "Virginia Avenue"));
-        board_squares.put(16, new BuyableTile(200, "Pennsylvania Railroad"));
-        board_squares.put(17, new BuyableTile(180, "St. James Place"));
-        board_squares.put(18, new CommunityChestTile("CommunityChest4"));
-        board_squares.put(19, new BuyableTile(180, "Tennessee Avenue"));
-        board_squares.put(20, new BuyableTile(200, "New York Avenue"));
-        board_squares.put(21, new CommunityChestTile("CommunityChest5"));
-        board_squares.put(22, new BuyableTile(220, "Kentucky Avenue"));
-        board_squares.put(23, new CommunityChestTile("CommunityChest6"));
-        board_squares.put(24, new BuyableTile(220, "Indiana Avenue"));
-        board_squares.put(25, new BuyableTile(240, "Illinois Avenue"));
-        board_squares.put(26, new BuyableTile(200, "B. & O. Railroad"));
-        board_squares.put(27, new BuyableTile(260, "Atlantic Avenue"));
-        board_squares.put(28, new BuyableTile(260, "Ventnor Avenue"));
-        board_squares.put(29, new BuyableTile(150, "Water Works"));
-        board_squares.put(30, new BuyableTile(280, "Marvin Gardens"));
-        board_squares.put(31, new GoToJailTile("GoToJail"));
-        board_squares.put(32, new BuyableTile(300, "Pacific Avenue"));
-        board_squares.put(33, new BuyableTile(300, "North Carolina Avenue"));
-        board_squares.put(34, new CommunityChestTile("CommunityChest7"));
-        board_squares.put(35, new BuyableTile(320, "Pennsylvania Avenue"));
-        board_squares.put(36, new BuyableTile(200, "Short Line Railroad"));
-        board_squares.put(37, new CommunityChestTile("CommunityChest8"));
-        board_squares.put(38, new BuyableTile(350, "Park Place"));
-        board_squares.put(39, new CommunityChestTile("CommunityChest9"));
-        board_squares.put(40, new BuyableTile(400, "Boardwalk"));
+        BufferedReader br = null;
+        String line;
+        try {
+            br = new BufferedReader(new FileReader("monopoly_tiles.csv"));
+            while((line = br.readLine()) != null) {
+                String[] row = line.split(",");
+                Integer spot = Integer.parseInt(row[0]);
+                String name = row[1];
+                String tile_type = row[2];
+                int price = Integer.parseInt(row[3]);
+
+                switch (tile_type) {
+                    case "Buyable":
+                        board_squares.put(spot, new BuyableTile(price, name));
+                        break;
+                    case "CommunityChest":
+                        board_squares.put(spot, new CommunityChestTile(name));
+                        break;
+                    case "GoToJail":
+                        board_squares.put(spot, new GoToJailTile(name));
+                        break;
+                    case "Prison":
+                        board_squares.put(spot, new PrisonTile(name));
+                        break;
+                    case "FreePass":
+                        board_squares.put(spot, new FreePassTile(name));
+                        break;
+                    case "Start":
+                        board_squares.put(spot, new StartTile(name));
+                        break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                assert br != null;
+                br.close();
+            } catch (IOException ignored) {
+
+            }
+        }
 
         this.player_positions = new HashMap<String, Integer>();
     }
