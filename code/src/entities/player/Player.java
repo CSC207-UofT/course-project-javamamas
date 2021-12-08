@@ -6,11 +6,6 @@ import java.util.Map;
 
 import entities.tiles.buyable.BuyableTile;
 
-/**
- * Player class. Stores a players info; Their name, owned tiles, wealth, and houses owned on tiles. Allows
- * for their info to be set and altered.
- *
- */
 public class Player {
  
     private String name;

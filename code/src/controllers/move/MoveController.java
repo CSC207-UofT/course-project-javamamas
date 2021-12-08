@@ -29,11 +29,10 @@ public class MoveController {
 
     public MoveController() {
 
-        board = new Board();
         turns = new HashMap<>();
         board.create_board();
         status = new PlayerStatus();
-        bank = new Bank(board);
+        bank = new Bank();
 
     }
 

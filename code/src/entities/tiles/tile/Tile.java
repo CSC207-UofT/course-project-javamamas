@@ -31,37 +31,43 @@ public abstract class Tile {
     public abstract void onAction(ActionStruct info);
 
     /**
-     *
+     * 
+     * @param player {@link Player}
+     * @return true if can add player, false otherwise
+     */
+
+    public abstract boolean canAddPlayer(Player player);
+
+    /**
+     * 
+     * 
      * @param player {@link Player}
      * @return true if player can be removed
      */
-
     public abstract boolean canRemovePlayer(Player player);
 
     /**
-     * Add player to the tile - Does not move the players position on the board, that is done by the Move Controller
-     * and Board.
-     *
+     * Add player.
+     * 
      * TODO: catch exception if cannot add player
-     *
+     * 
      * @param player {@link Player}
      */
-
     public abstract void addPlayer(Player player);
 
     /**
-     * remove player from the tile.
-     *
+     * remove player.
+     * 
      * TODO: catch exception if player cannot be removed
-     *
+     * 
      * @param player {@link Player}
      */
 
     public abstract void removePlayer(Player player);
 
     /**
-     *
-     * @return All players currently on the Tile.
+     * 
+     * @return all players.
      */
     public Collection<Player> getPlayers() {
         return this.players;

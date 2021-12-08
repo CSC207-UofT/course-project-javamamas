@@ -12,7 +12,7 @@ import entities.tiles.buyable.BuyableTile;
  * <p> Say we want to allow for default construction of a {@link BuyableTile}
  * (we want to, this is incredibly useful), that is, we dont set the price of 
  * the tile when creating it. This can create issues because what if we try 
- * to now use this tile as if it has a price? So, implementing this interface will
+ * to now use this tile as if it has a price? So, impementing this interface will
  * allow a user to check whether the tile price has been set. If the price
  * has been set (the tile has been initialized) the method returns true and
  * it is safe to use that tile. </p>
