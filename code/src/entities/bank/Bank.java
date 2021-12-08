@@ -24,7 +24,7 @@ import use_cases.board.Board;
  */
 public class Bank {
     
-    HashMap<Player, Integer> balances; // balance of players
+    HashMap<Player, Integer> balances; // balance of  players
     int balance; // total balance in bank
     int numHouses; // number of houses in bank
     int numHotels; // number of hotels in bank
@@ -42,7 +42,7 @@ public class Bank {
         this.balance = 20580;
         this.remainingTiles = new ArrayList<>();
         for (int i = 0; i != 40; i++){
-            if (board.getTileAtPosition(i) instanceof  BuyableTile) {
+            if (board.getTileAtPosition(i) instanceof  BuyableTile) 
                 remainingTiles.add((BuyableTile) board.getTileAtPosition(i));
             }
         }
