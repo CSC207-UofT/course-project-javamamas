@@ -8,6 +8,11 @@ public class GoToJailTile extends Tile {
 
     public GoToJailTile(String tile_name) {}
 
+    /**
+     * When a player lands on this tile, they are moved to the prison tile.
+     *
+     * @param info variables obtained from ActionStruct needed for the action.
+     */
     @Override
     public void onAction(ActionStruct info) {
         info.board.setPlayerPosition(info.currPlayer, 11);

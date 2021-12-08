@@ -21,6 +21,12 @@ public class CommunityChestTile extends Tile {
 
     }
 
+    /**
+     * When a player lands on this tile, they get a random card which determines their action (will either cause them
+     * to miss a turn, move them to a random board tile, or give them a random amount of money from possible amounts).
+     *
+     * @param info variables obtained from ActionStruct needed for the action.
+     */
     @Override
     public void onAction(ActionStruct info) {   
         currCard = cards.get((int)(Math.random() * 3) + 1);

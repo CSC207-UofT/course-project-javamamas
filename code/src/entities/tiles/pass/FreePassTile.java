@@ -10,6 +10,11 @@ public class FreePassTile extends Tile {
 
     public FreePassTile(String tile_name) {}
 
+    /**
+     * This is a resting tile. Nothing will happen to players on this tile.
+     *
+     * @param info variables obtained from ActionStruct needed for the action.
+     */
     @Override
     public void onAction(ActionStruct info) {        
     }

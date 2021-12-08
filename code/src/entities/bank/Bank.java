@@ -9,12 +9,9 @@ import entities.tiles.buyable.BuyableTile;
 import use_cases.board.Board;
 
 /**
- * Bank class.
- * 
- * <p> Invariants </p>
- * <p>
- * - {@link #numPlayers} can only be set once
- * </p>
+ * Bank class. Stores money, houses, hotels and tiles available for purchase. Also allows for purchase
+ * of tiles.
+ *
  */
 public class Bank {
     
@@ -27,8 +24,7 @@ public class Bank {
     /**
      *  Construct the bank.
      *
-     * 
-     *
+     * @param board board created at start of the game.
      */
     public Bank(Board board) {
         this.numHouses = 32;
@@ -42,11 +38,24 @@ public class Bank {
         }
     }
 
+    /**
+     * Checks if player has enough money in their balance to buy the given BuyableTile and whether the BuyableTile is
+     * available for purchase.
+     *
+     * @param player {@link Player}
+     * @param prospect {@link BuyableTile}
+     * @return true if conditions met, false otherwise
+     */
     public boolean checkAcceptance(Player player, BuyableTile prospect){
         return (player.getBalance() >= prospect.getPrice()) & (this.remainingTiles.contains(prospect));
     }
 
-
+    /**
+     * Purchases a property (BuyableTile) for a player if they are eligble to purchase it.
+     *
+     * @param player {@link Player}
+     * @param prospect {@link BuyableTile}
+     */
     public void sellProperty(Player player, BuyableTile prospect){
 
         if (checkAcceptance(player, prospect)) {

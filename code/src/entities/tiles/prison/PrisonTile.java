@@ -18,6 +18,11 @@ public class PrisonTile extends Tile {
 
     }
 
+    /**
+     * A player currently on this tile cannot move for a turn.
+     *
+     * @param info variables obtained from ActionStruct needed for the action.
+     */
     @Override
     public void onAction(ActionStruct info) {
         numJailed.put(info.currPlayer, numJailed.get(info.currPlayer) + 1); // add that player has sat a turn

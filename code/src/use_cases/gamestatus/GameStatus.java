@@ -8,9 +8,10 @@ import entities.tiles.buyable.BuyableTile;
 public class GameStatus {
     
     /**
-     * 
-     * @param remainingTiles
-     * @return true if all buyables have been bought 
+     * Are all BuyableTile's owned by a player?
+     *
+     * @param remainingTiles Unique list of {@link BuyableTile}
+     * @return true if condition is met.
      */
     public boolean isAllBought(Collection<BuyableTile> remainingTiles) {
     
@@ -20,7 +21,7 @@ public class GameStatus {
 
     /**
      * 
-     * @param players
+     * @param players Unique list of {@link Player}
      * @return true if all the players are broke
      */
     public boolean isAllBroke(Collection<Player> players) {
@@ -35,6 +36,7 @@ public class GameStatus {
     }
 
     /**
+     * Checks possible game ending scenarios - All BuyableTiles are owned or all players are bankrupt.
      * 
      * @param players Unique list of {@link Player}
      * @param remainingTiles Unique list of {@link BuyableTile}
