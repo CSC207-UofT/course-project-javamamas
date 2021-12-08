@@ -76,6 +76,12 @@ public class BuyableTile extends Tile {
 
     }
 
+    /**
+     * When a player lands on this tile, they pay rent (based off the price). The amount of money deducted from the\
+     * players balance is then obtained by the BuyableTiles owner.
+     *
+     * @param info variables obtained from ActionStruct needed for the action.
+     */
     @Override
     public void onAction(ActionStruct info) {
         int current_balance = info.currPlayer.getBalance();

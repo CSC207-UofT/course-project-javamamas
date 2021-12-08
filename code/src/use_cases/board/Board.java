@@ -16,6 +16,11 @@ public class Board {
     private Map<Integer, Tile> board_squares;
     private Map<String, Integer> player_positions;
 
+    /**
+     * Creates monopoly board by reading in a file containing information for each tile at the given location
+     * (spots from 1 - 40). A tile is created based on the tile type specified and added to the board_squares
+     * dictionary, where it is mapped from its location.
+     */
     public void create_board() {
         this.board_squares = new HashMap<Integer, Tile>();
         BufferedReader br = null;
