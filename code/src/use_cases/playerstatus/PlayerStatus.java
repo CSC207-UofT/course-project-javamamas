@@ -12,7 +12,6 @@ public class PlayerStatus {
      * Is player in playable state?
      * 
      * @param player {@link Player}
-     * @param bank {@link Bank}
      * @return true if conditions met, false otherwise
      */
     public boolean checkPlayer(Player player) {
@@ -21,7 +20,8 @@ public class PlayerStatus {
 
     /**
      * 
-     *
+     * @param player {@link Player}
+     * return
      */
     public int playerValue(Player player) {
         int networth = 0;
