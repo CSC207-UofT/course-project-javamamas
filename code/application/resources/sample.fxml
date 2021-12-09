@@ -1,0 +1,96 @@
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label ?>
+<?import javafx.scene.control.TextField ?>
+<?import javafx.stage.FileChooser ?>
+<?import javafx.scene.image.ImageView ?>
+<?import javafx.scene.shape.Circle ?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<Pane fx:id="main" fx:controller="application.MainController" xmlns:fx="http://javafx.com/fxml">  
+	<AnchorPane fx:id="header" styleClass="header">
+		<Button fx:id="exit" styleClass="btn" onAction="#exitClick"/>
+		<Button fx:id="minimize" styleClass="btn" onAction="#minClick"/>
+	</AnchorPane>
+	<Pane fx:id="welcome">
+		<Label fx:id="welcomeLabTitle" text="Monopoly"/>
+		<Label fx:id="welcomeLabAuthors" text="Dennis, Dravin, Yusra, Rubaina, Giancarlo, Shivanshi"/>
+		<Button text="Play" fx:id="welcomeBtnPlay"/>
+	</Pane>
+	<Pane fx:id="select">
+		<Label fx:id="selectLabTitle" text="Select Min Two Players"/>
+		<Button fx:id="selectBtnNext"/>
+		<Pane fx:id="selectPanePlayers">
+			<Pane fx:id="selectPaneOne">
+				<TextField fx:id="selectTextOne" text="Enter Player One Name"/>
+				<Pane fx:id="selectImageOne">
+					<VBox alignment="CENTER">
+					    <HBox alignment="CENTER">
+					    	<Label fx:id="selectLabOne" textFill="black" text="Click to Select Icon"/>
+							<ImageView fx:id="selectDisplayOne"/>
+					    </HBox>
+					</VBox>
+				</Pane>
+			</Pane>
+			<Pane fx:id="selectPaneTwo">
+				<TextField fx:id="selectTextTwo" text="Enter Player Two Name"/>
+				<Pane fx:id="selectImageTwo">
+					<VBox alignment="CENTER">
+					    <HBox alignment="CENTER">
+					    	<Label fx:id="selectLabTwo" textFill="black" text="Click to Select Icon"/>
+							<ImageView fx:id="selectDisplayTwo"/>
+					    </HBox>
+					</VBox>
+				</Pane>
+			</Pane>
+			<Pane fx:id="selectPaneThree">
+				<TextField fx:id="selectTextThree" text="Enter Player Three Name"/>
+				<Pane fx:id="selectImageThree">
+					<VBox alignment="CENTER">
+					    <HBox alignment="CENTER">
+					    	<Label fx:id="selectLabThree" textFill="black" text="Click to Select Icon"/>
+							<ImageView fx:id="selectDisplayThree"/>
+					    </HBox>
+					</VBox>
+				</Pane>
+			</Pane>
+			<Pane fx:id="selectPaneFour">
+				<TextField fx:id="selectTextFour" text="Enter Player Four Name"/>
+				<Pane fx:id="selectImageFour">
+					<VBox alignment="CENTER">
+					    <HBox alignment="CENTER">
+					    	<Label fx:id="selectLabFour" textFill="black" text="Click to Select Icon"/>
+							<ImageView fx:id="selectDisplayFour"/>
+					    </HBox>
+					</VBox>
+				</Pane>
+			</Pane>
+		</Pane>
+	</Pane>
+	<Pane fx:id="play">
+		<ImageView fx:id="playImgBoard"/>
+		<Pane fx:id="playPanePlayers">
+		</Pane>
+		<Pane fx:id="playRoller">
+		</Pane>
+		<Pane fx:id="playChance">
+			
+		</Pane>
+		<Circle fx:id="playCircleRoller"/>
+		<Button fx:id="playBtnBuy"/>
+		<Button fx:id="playBtnHelp"/>
+	</Pane>
+	<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+	    <padding>
+	        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+	    </padding>
+	
+	    <Label fx:id="welcomeText"/>
+    	<Button text="Hello!"/>
+	</VBox>
+</Pane>
