@@ -5,7 +5,7 @@ import entities.player.Player;
 import entities.tiles.buyable.BuyableTile;
 import entities.tiles.tile.Tile;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 public class PropertyChecker {
     
@@ -15,12 +15,13 @@ public class PropertyChecker {
      * @param player {@link Player}
      * @param tile {@link Tile}
      * @param bank {@link Bank}
+     * @param remainingTiles A list of remaining tiles {@link BuyableTile}
      * @return true if conditions met, false otherwise
      */
-    public boolean canBuy(Player player, BuyableTile tile, Bank bank, ArrayList<BuyableTile> remainingTiles) {
+    public boolean canBuy(Player player, Tile tile, Bank bank, Collection<BuyableTile> remainingTiles) {
         
-        if (remainingTiles.contains(tile)){
-            return (player.getBalance() >= tile.getPrice());
+        if (remainingTiles.contains(tile) && tile instanceof BuyableTile){
+            return (player.getBalance() >= ((BuyableTile)tile).getPrice());
         }
         return false;
 

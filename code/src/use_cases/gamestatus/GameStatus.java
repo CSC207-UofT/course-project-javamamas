@@ -1,6 +1,5 @@
 package use_cases.gamestatus;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 import entities.player.Player;
@@ -9,11 +8,12 @@ import entities.tiles.buyable.BuyableTile;
 public class GameStatus {
     
     /**
-     * 
-     * @param remainingTiles
-     * @return true if all buyables have been bought 
+     * Are all BuyableTile's owned by a player?
+     *
+     * @param remainingTiles Unique list of {@link BuyableTile}
+     * @return true if condition is met.
      */
-    public boolean isAllBought(ArrayList<BuyableTile> remainingTiles) {
+    public boolean isAllBought(Collection<BuyableTile> remainingTiles) {
     
         return (remainingTiles.size() == 0);
 
@@ -21,7 +21,7 @@ public class GameStatus {
 
     /**
      * 
-     * @param players
+     * @param players Unique list of {@link Player}
      * @return true if all the players are broke
      */
     public boolean isAllBroke(Collection<Player> players) {
@@ -35,7 +35,14 @@ public class GameStatus {
 
     }
 
-    public boolean gameStatus(Collection<Player> players, ArrayList<BuyableTile> remainingTiles){
+    /**
+     * Checks possible game ending scenarios - All BuyableTiles are owned or all players are bankrupt.
+     * 
+     * @param players Unique list of {@link Player}
+     * @param remainingTiles Unique list of {@link BuyableTile}
+     * @return true iff all the tiles are bought and none of the players too poor to play.
+     */
+    public boolean gameStatus(Collection<Player> players, Collection<BuyableTile> remainingTiles){
         if (isAllBroke(players)){
             return true;
         }
@@ -46,7 +53,5 @@ public class GameStatus {
             return false;
         }
     }
-
-
 
 }
